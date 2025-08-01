@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # BaseWebAIS
-=======
+
 # WEB BASE V3
 
 ## Web base v3 based on:
