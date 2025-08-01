@@ -1,3 +1,7 @@
+# Funny Red Fag Team
+
+The Funny Red Flag Team (Đội Cờ Đỏ Vui Vẻ) system is expected to include a website and app for internal team management (information, work, personnel,...)
+
 
 # BaseWebAIS
 
