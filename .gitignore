@@ -1,47 +1,63 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-**/node_modules
-# roadhog-api-doc ignore
-/src/utils/request-temp.js
-_roadhog-api-doc
-
-# production
-/dist
-/.vscode
-
-# misc
-.DS_Store
-npm-debug.log*
-yarn-error.log
-
-/coverage
-.idea
+# -----------------------------------
+# 🧩 Dependencies
+node_modules/
 yarn.lock
 package-lock.json
-*bak
-.vscode
 
-# visual studio code
+# -----------------------------------
+# 🏗️ Build outputs
+dist/
+build/
+.umi/
+.umi-production/
+
+# -----------------------------------
+# 🔧 Editor / IDE configs
+.vscode/
+.idea/
 .history
+.DS_Store
+*.bak
 *.log
-functions/*
-.temp/**
 
-# umi
-.umi
-.umi-production
+# -----------------------------------
+# 🔐 Environment variables
+.env
+.env.*.local
 
-# screenshot
-screenshot
-.firebase
-.eslintcache
+# -----------------------------------
+# 🧪 Test / Coverage
+coverage/
+*.eslintcache
 
-build
-.husky
+# -----------------------------------
+# 🔧 Misc system
+npm-debug.log*
+yarn-error.log
+functions/
+.temp/
 
-# .vercel
+# -----------------------------------
+# 📦 Roadhog (umi)
+_roadhog-api-doc
+/src/utils/request-temp.js
 
-# Sentry Auth Token
-#.sentryclirc
+# -----------------------------------
+# 🚀 Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.local.yml
+.docker/
+*.tar
+*.pid
 
+# -----------------------------------
+# ☁️ Hosting (Vercel, Firebase)
+.vercel/
+.firebase/
+
+# -----------------------------------
+# 📸 Others
+screenshot/
+.husky/
+.sentryclirc
