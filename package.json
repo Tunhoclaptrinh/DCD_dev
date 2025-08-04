@@ -3,6 +3,11 @@
   "version": "5.0.0",
   "private": true,
   "description": "An out-of-box UI solution for enterprise applications",
+  "resolutions": {
+    "minimatch": "^5.1.6",
+    "commander": "^9.5.0",
+    "cheerio": "1.0.0-rc.10"
+  },
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "umi build",
@@ -136,7 +141,7 @@
     "typescript": "^4.2.2"
   },
   "engines": {
-    "node": "16.x"
+    "node": "16.x"  
   },
   "gitHooks": {
     "commit-msg": "fabric verify-commit"

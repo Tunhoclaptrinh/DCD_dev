@@ -78,34 +78,34 @@ const OIDCBounder_: FC = ({ children }) => {
 		} else history.replace('/user/login');
 	};
 
-	useEffect(() => {
-		// Nếu đang cập nhật thì bật cái này lên
-		// history.replace('/hold-on');
-		// return;
+	// useEffect(() => {
+	// 	// Nếu đang cập nhật thì bật cái này lên
+	// 	// history.replace('/hold-on');
+	// 	// return;
 
-		if (isUnauth || auth.isLoading) return;
+	// 	if (isUnauth || auth.isLoading) return;
 
-		// Chưa login + chưa có auth params ==> Cần redirect keycloak để lấy auth params + cookie
-		if (!hasAuthParams() && !auth.isAuthenticated) {
-			auth.signinRedirect();
-			return;
-		}
+	// 	// Chưa login + chưa có auth params ==> Cần redirect keycloak để lấy auth params + cookie
+	// 	if (!hasAuthParams() && !auth.isAuthenticated) {
+	// 		auth.signinRedirect();
+	// 		return;
+	// 	}
 
-		// Quá 5s nếu ko auth được thì xóa params
-		if (!timeout)
-			timeout = setTimeout(() => {
-				if (hasAuthParams() && !auth.isAuthenticated) redirectLocation();
-			}, 1000 * 5);
+	// 	// Quá 5s nếu ko auth được thì xóa params
+	// 	if (!timeout)
+	// 		timeout = setTimeout(() => {
+	// 			if (hasAuthParams() && !auth.isAuthenticated) redirectLocation();
+	// 		}, 1000 * 5);
 
-		// Đã login => Xoá toàn bộ auth params được sử dụng để login trước đó
-		if (auth.isAuthenticated) {
-			if (hasAuthParams()) redirectLocation();
-			else {
-				if (timeout) clearTimeout(timeout);
-				handleLogin();
-			}
-		}
-	}, [auth.isAuthenticated, auth.isLoading]);
+	// 	// Đã login => Xoá toàn bộ auth params được sử dụng để login trước đó
+	// 	if (auth.isAuthenticated) {
+	// 		if (hasAuthParams()) redirectLocation();
+	// 		else {
+	// 			if (timeout) clearTimeout(timeout);
+	// 			handleLogin();
+	// 		}
+	// 	}
+	// }, [auth.isAuthenticated, auth.isLoading]);
 
 	useEffect(() => {
 		if (auth.user?.access_token) handleAxios(auth.user.access_token);
@@ -120,7 +120,8 @@ const OIDCBounder_: FC = ({ children }) => {
 		ConfigProvider.config({ theme: { primaryColor } });
 	}, []);
 
-	return <>{(auth.isLoading || initialState?.permissionLoading) && !isUnauth ? <LoadingPage /> : children}</>;
+	return children;
+	// return <>{(auth.isLoading || initialState?.permissionLoading) && !isUnauth ? <LoadingPage /> : children}</>;
 };
 
 export const OIDCBounder: FC & { getActions: () => typeof OIDCBounderHandlers } = (props) => {
